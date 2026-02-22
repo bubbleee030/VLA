@@ -1,8 +1,8 @@
-# 🤖 VLA - 視覺語言行動機器人學習系統
+# VLA - Vision Language Action Robotics Learning System
 
 <div align="center">
 
-**一個用於機器人學習和控制的視覺-語言-行動整合框架**
+**A vision-language-action integrated framework for robot learning and control**
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-green.svg)](https://www.python.org/)
@@ -11,105 +11,105 @@
 
 ---
 
-## 📌 項目介紹
+## Overview
 
-VLA 是一個先進的機器人學習系統，集成了**視覺感知**、**語言理解**和**控制行動**三個核心模塊。系統能夠理解自然語言指令，並根據視覺輸入生成相應的機器人控制命令。
+VLA is an advanced robotics learning system that integrates **visual perception**, **language understanding**, and **action control** as three core modules. The system can understand natural language instructions and generate corresponding robot control commands based on visual input.
 
-### 🎯 核心特性
+### Key Features
 
-- ✅ **多模態學習** - 融合視覺和語言信息
-- ✅ **自然語言指令** - 支持中英文自然語言命令
-- ✅ **觸覺反饋集成** - 包含觸覺傳感器数據处理（可选）
-- ✅ **模塊化設計** - 易於擴展和自定義
-- ✅ **完整 Demo** - 提供開箱即用的演示代碼
-- ✅ **詳細文檔** - 中文教學和技術文檔
+- Multi-modal Learning - Integrate vision and language information
+- Natural Language Instructions - Support Chinese and English commands
+- Tactile Feedback Integration - Include tactile sensor data processing (optional)
+- Modular Design - Easy to extend and customize
+- Complete Demo - Provide out-of-the-box demonstration code
+- Detailed Documentation - Chinese tutorials and technical documentation
 
 ---
 
-## 📁 項目結構
+## Project Structure
 
 ```
 VLA/
-├── models/                 # 核心模型架構
-│   ├── rdt/               # RDT (Robotics Diffusion Transformer) 主模型
-│   ├── multimodal_encoder/ # 多模態編碼器
-│   └── rdt_runner.py      # 模型推論入口
+├── models/                 # Core model architecture
+│   ├── rdt/               # RDT (Robotics Diffusion Transformer) main model
+│   ├── multimodal_encoder/ # Multi-modal encoder
+│   └── rdt_runner.py      # Model inference entry point
 │
-├── train/                 # 訓練代碼
-│   ├── train.py          # 主訓練迴圈
-│   └── *.py              # 訓練工具函數
+├── train/                 # Training code
+│   ├── train.py          # Main training loop
+│   └── *.py              # Training utility functions
 │
-├── data/                  # 數據處理模塊
-│   ├── hdf5_vla_dataset.py       # HDF5 數據加載
-│   ├── unified_vla_dataset.py    # 統一數據格式
-│   └── create_controller_dataset_episode.py # 數據轉換
+├── data/                  # Data processing module
+│   ├── hdf5_vla_dataset.py       # HDF5 data loading
+│   ├── unified_vla_dataset.py    # Unified data format
+│   └── create_controller_dataset_episode.py # Data conversion
 │
-├── configs/               # 配置文件
-│   ├── base.yaml         # 基礎配置
-│   ├── train_config.yaml # 訓練配置
-│   └── *.json            # 數據集和權重配置
+├── configs/               # Configuration files
+│   ├── base.yaml         # Base configuration
+│   ├── train_config.yaml # Training configuration
+│   └── *.json            # Dataset and weight configuration
 │
-├── demo/                  # 演示和快速開始
-│   ├── run_demo.sh       # 互動式 demo 菜單
-│   ├── simple_visualize_data.py  # 數據可視化
-│   ├── interactive_demo.py       # 互動推論測試
-│   ├── START_HERE.md     # 快速開始指南
-│   └── 一頁總結.md       # 項目總覽
+├── demo/                  # Demo and quick start
+│   ├── run_demo.sh       # Interactive demo menu
+│   ├── simple_visualize_data.py  # Data visualization
+│   ├── interactive_demo.py       # Interactive inference testing
+│   ├── START_HERE.md     # Quick start guide
+│   └── 一頁總結.md       # Project overview
 │
-├── scripts/               # 實用腳本
-├── main.py               # 直接訓練入口
-├── finetune.sh          # 微調腳本
-└── inference.sh         # 推論腳本
+├── scripts/               # Utility scripts
+├── main.py               # Direct training entry
+├── finetune.sh          # Fine-tuning script
+└── inference.sh         # Inference script
 ```
 
 ---
 
-## 🚀 快速開始
+## Quick Start
 
-### 💻 環境設置
+### Environment Setup
 
 ```bash
-# 克隆項目
+# Clone the repository
 git clone https://github.com/your-username/VLA.git
 cd VLA
 
-# 創建虛擬環境（建議使用 conda）
+# Create virtual environment (recommended with conda)
 conda create -n vla python=3.9
 conda activate vla
 
-# 安裝依賴
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 🎮 運行 Demo（推薦首先嘗試）
+### Running Demo (Recommended First)
 
 ```bash
 cd demo
 
-# 安裝 demo 依賴（首次需要）
+# Install demo dependencies (first time only)
 bash install_demo_deps.sh
 
-# 執行互動式菜單（最簡單的方式）
+# Execute interactive menu (simplest way)
 bash run_demo.sh
 ```
 
-**Demo 菜單包括：**
-- 📊 視覺化數據集（無需訓練）
-- 🎯 互動推論測試（快速驗證模型）
-- 📈 訓練小規模模型（可選）
+**Demo menu includes:**
+- Data visualization (no training required)
+- Interactive inference testing (quick model verification)
+- Small-scale model training (optional)
 
-### 📖 推薦閱讀順序
+### Recommended Reading Order
 
-1. **[`demo/一頁總結.md`](demo/一頁總結.md)** - 3 分鐘快速了解（⭐ 強烈推薦）
-2. **[`demo/START_HERE.md`](demo/START_HERE.md)** - 5 分鐘詳細入門
-3. 實際運行 demo 代碼
-4. **[`demo/quick_start_zh.md`](demo/quick_start_zh.md)** - 進階設置（需要時查閱）
+1. **[`demo/一頁總結.md`](demo/一頁總結.md)** - Quick overview in 3 minutes (highly recommended)
+2. **[`demo/START_HERE.md`](demo/START_HERE.md)** - Detailed introduction in 5 minutes
+3. Run the demo code in practice
+4. **[`demo/quick_start_zh.md`](demo/quick_start_zh.md)** - Advanced setup (consult when needed)
 
 ---
 
-## 🔧 主要訓練命令
+## Main Training Commands
 
-### 訓練完整模型
+### Train Full Model
 
 ```bash
 python main.py \
@@ -118,167 +118,167 @@ python main.py \
     --load_from_hdf5
 ```
 
-### 微調預訓練模型
+### Fine-tune Pretrained Model
 
 ```bash
 bash finetune.sh
 ```
 
-### 推論和評估
+### Inference and Evaluation
 
 ```bash
 bash inference.sh
 ```
 
-詳細參數說明見 [`main.py`](main.py) 和 [配置文件](configs/train_config.yaml)
+See [`main.py`](main.py) and [configuration files](configs/train_config.yaml) for detailed parameter descriptions
 
 ---
 
-## 📊 主要組件說明
+## Core Components Overview
 
-### 🧠 模型架構
+### Model Architecture
 
-| 組件 | 功能 | 說明 |
+| Component | Function | Description |
 |------|------|------|
-| **RDT Model** | 主模型框架 | Robotics Diffusion Transformer |
-| **Vision Encoder** | 圖像編碼 | 處理視覺輸入 |
-| **Language Encoder** | 文本編碼 | 理解自然語言指令 |
-| **Action Decoder** | 行動生成 | 輸出機器人控制信號 |
+| **RDT Model** | Main model framework | Robotics Diffusion Transformer |
+| **Vision Encoder** | Image encoding | Process visual input |
+| **Language Encoder** | Text encoding | Understand natural language instructions |
+| **Action Decoder** | Action generation | Output robot control signals |
 
-### 📚 數據格式
+### Data Format
 
-支持多種數據格式：
-- **HDF5** - 高效儲存和加載
-- **TFRecord** - TensorFlow 標準格式
-- **統一格式** - 自定義數據集支持
+Support multiple data formats:
+- **HDF5** - Efficient storage and loading
+- **TFRecord** - TensorFlow standard format
+- **Unified format** - Custom dataset support
 
-### 🎛️ 可配置項
+### Configurable Items
 
-所有主要參數在 [`configs/`](configs/) 中配置：
-- 模型大小和架構
-- 訓練超參數
-- 數據集位置和權重
-- 推論參數
+All main parameters are configured in [`configs/`](configs/):
+- Model size and architecture
+- Training hyperparameters
+- Dataset location and weights
+- Inference parameters
 
 ---
 
-## 🖼️ 功能演示
+## Functional Demonstration
 
-### 同時支持的功能
+### Supported Functionality
 
 ```
-🎥 視覺輸入  →  🧠 多模態編碼  →  🎯 行動預測  →  🤖 機器人執行
+Visual Input  →  Multi-modal Encoding  →  Action Prediction  →  Robot Execution
                       ↓
-                 自然語言指令
+                Natural Language Instructions
 ```
 
-### 使用案例
+### Use Cases
 
-- ✋ **物體抓取** - 理解"拿起紅色方塊"並執行
-- 🔄 **軌跡複製** - 從視覺觀察學習行為
-- 🎓 **遷移學習** - 在新任務上快速微調
-- 💡 **多機器人** - 支持多種機器人平台
-
----
-
-## 📈 項目亮點
-
-### 相比基線的改進
-
-- 📊 **多模態融合** - 結合視覺和語言的雙重優勢
-- 🎯 **精度提升** - [具體數字待填充]
-- ⚡ **計算效率** - [具體數字待填充]
-- 🔧 **易用性** - 開箱即用的 demo 和文檔
-
-### 技術選型
-
-- **模型基礎** - Diffusion Transformers
-- **訓練框架** - PyTorch + Accelerate
-- **多機訓練** - DeepSpeed 支持
-- **機器人控制** - [支持的平台]
+- **Object Grasping** - Understand "pick up red cube" and execute
+- **Trajectory Imitation** - Learn behavior from visual observation
+- **Transfer Learning** - Quick fine-tuning on new tasks
+- **Multi-Robot** - Support multiple robot platforms
 
 ---
 
-## 📋 系統要求
+## Project Highlights
+
+### Improvements over Baselines
+
+- **Multi-modal Fusion** - Combine the dual advantages of vision and language
+- **Accuracy Improvement** - [Specific numbers to be filled]
+- **Computational Efficiency** - [Specific numbers to be filled]
+- **Usability** - Out-of-the-box demo and documentation
+
+### Technical Stack
+
+- **Model Foundation** - Diffusion Transformers
+- **Training Framework** - PyTorch + Accelerate
+- **Multi-machine Training** - DeepSpeed support
+- **Robot Control** - [Supported platforms]
+
+---
+
+## System Requirements
 
 ```
 Python >= 3.8
 PyTorch >= 1.13
-CUDA 11.8+ (推薦使用 GPU)
-RAM >= 16GB (訓練建議 32GB+)
-GPU VRAM >= 24GB (用於完整訓練)
+CUDA 11.8+ (GPU recommended)
+RAM >= 16GB (32GB+ recommended for training)
+GPU VRAM >= 24GB (for full training)
 ```
 
-完整依賴見 [`requirements.txt`](requirements.txt)
+See [`requirements.txt`](requirements.txt) for complete dependencies
 
 ---
 
-## 🤝 如何使用（履歷用途）
+## How to Use (For Resume)
 
-### 對於面試和項目展示
+### For Interview and Project Presentations
 
-1. **快速演示**（5 分鐘）
-   - 克隆 repo
-   - 運行 `bash demo/run_demo.sh`
-   - 展示可視化效果
+1. **Quick Demo** (5 minutes)
+   - Clone the repository
+   - Run `bash demo/run_demo.sh`
+   - Display visualization results
 
-2. **代碼審查**（深度技術討論）
-   - 核心模型在 [`models/rdt/`](models/rdt/)
-   - 訓練邏輯在 [`train/`](train/)
-   - 數據處理在 [`data/`](data/)
+2. **Code Review** (In-depth technical discussion)
+   - Core model in [`models/rdt/`](models/rdt/)
+   - Training logic in [`train/`](train/)
+   - Data processing in [`data/`](data/)
 
-3. **性能展示**（技術亮點）
-   - 查看 [`test_results.txt`](test_results.txt) 的評估指標
-   - 詢問具體的改進點和技術細節
-
----
-
-## 🔍 文件導航
-
-### 快速查找
-
-- 📖 **想快速了解？** → [`demo/一頁總結.md`](demo/一頁總結.md)
-- 🚀 **想立即開始？** → [`demo/START_HERE.md`](demo/START_HERE.md)
-- 📚 **想深入學習？** → [`demo/quick_start_zh.md`](demo/quick_start_zh.md)
-- 💻 **想修改代碼？** → [`models/`](models/) 和 [`train/`](train/)
-- ⚙️ **想調整參數？** → [`configs/`](configs/)
+3. **Performance Showcase** (Technical highlights)
+   - Check evaluation metrics in [`test_results.txt`](test_results.txt)
+   - Discuss specific improvements and technical details
 
 ---
 
-## 📞 技術支持
+## File Navigation
 
-### 常見問題
+### Quick Reference
 
-**Q: 沒有 GPU 能運行嗎？**  
-A: 可以，但很慢。建議使用 demo 中的數據可視化來理解系統。
-
-**Q: 能用自己的數據嗎？**  
-A: 可以，見 `demo/prepare_own_dataset.py`
-
-**Q: 支持哪些機器人？**  
-A: 主要是 Franka，可擴展支持其他平台
+- **Want a quick understanding?** → [`demo/一頁總結.md`](demo/一頁總結.md)
+- **Want to start immediately?** → [`demo/START_HERE.md`](demo/START_HERE.md)
+- **Want to learn in depth?** → [`demo/quick_start_zh.md`](demo/quick_start_zh.md)
+- **Want to modify code?** → [`models/`](models/) and [`train/`](train/)
+- **Want to adjust parameters?** → [`configs/`](configs/)
 
 ---
 
-## 📄 許可證
+## Technical Support
 
-MIT License - 詳見 [LICENSE](LICENSE)
+### FAQ
+
+**Q: Can it run without GPU?**  
+A: Yes, but slowly. It is recommended to use data visualization in the demo to understand the system.
+
+**Q: Can I use my own data?**  
+A: Yes, see `demo/prepare_own_dataset.py`
+
+**Q: Which robots are supported?**  
+A: Primarily Franka, with extensibility to support other platforms
 
 ---
 
-## 🙏 致謝
+## License
 
-本項目基於以下研究和框架：
+MIT License - See [LICENSE](LICENSE) for details
+
+---
+
+## Acknowledgments
+
+This project is based on the following research and frameworks:
 - Robotics Diffusion Transformer
-- Vision-Language 多模態學習
-- [相關論文和項目]
+- Vision-Language Multi-modal Learning
+- VLA-Touch
 
 ---
 
 <div align="center">
 
-**⭐ 如果這個項目對你有幫助，請給個 Star！**
+If this project is helpful to you, please give it a Star!
 
-Made with ❤️ for Robotics & AI
+Made for Robotics & AI
 
 </div>
