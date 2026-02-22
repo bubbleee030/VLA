@@ -164,6 +164,13 @@ All main parameters are configured in [`configs/`](configs/):
 
 ## Functional Demonstration
 
+### Real-World Example
+
+<div align="center">
+<img src="data_visualization/episode_10_video.gif" alt="Robot Mango Grasping Demo" width="600">
+<p><strong>Robot autonomously picking mangoes based on visual and language instructions</strong></p>
+</div>
+
 ### Supported Functionality
 
 ```
@@ -278,7 +285,5 @@ This project is based on the following research and frameworks:
 <div align="center">
 
 If this project is helpful to you, please give it a Star!
-
-Made for Robotics & AI
 
 </div>
