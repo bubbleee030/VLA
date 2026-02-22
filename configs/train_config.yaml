@@ -1,0 +1,48 @@
+# ==================================================
+# 💡 VLA 專案 - 完整訓練設定檔
+# ==================================================
+
+# --- 1. 訓練流程設定 ---
+training:
+  epochs: 50              # 訓練的總輪次
+  batch_size: 16          # 每批次的樣本數。根據您的 GPU VRAM 大小調整
+  learning_rate: 1e-4     # 學習率，是訓練中最重要的超參數之一
+  precision: 32          # 計算精度，32 表示使用單精度浮點數
+
+# --- 2. 資料集設定 ---
+data:
+  # 註：此處的路徑會在 run_and_compare_augmentation.py 腳本中被動態覆蓋
+  # 但為了獨立執行其他腳本，我們仍保留一個預設值
+  data_dir: ./data/datasets/mango_hdf5_augmented_5x
+  
+  num_workers: 4          # 讀取資料的背景執行緒數量，設為 4 或 8 通常不錯
+  
+  # ✅【重要修正】加入資料分割參數
+  train_ratio: 0.8        # 訓練集佔總資料的比例 (80%)，剩下的 20% 會變成測試集
+  random_seed: 42         # 隨機種子，確保每次分割的結果都一樣，讓實驗可以重現
+
+# --- 3. 模型架構設定 ---
+model:
+  # 註：modality 參數會由腳本（例如 'tactile', 'tactile_reduced'）動態傳入
+  # 此處的值僅作為預設
+  modality: tactile
+  
+  action_dim: 7          # 動作空間的維度（我們預測的目標維度）
+  obs_dim: 256            # 觀測特徵的維度（CNN 特徵提取後的維度）
+  horizon: 16             # 預測未來多少個時間步（通常與 Bridge Data V2 的設定一致）
+  tactile_feature_dim: 126  # 明確定義輸入的觸覺特徵維度
+
+# --- 4. 模型儲存點 (Checkpoint) 設定 ---
+checkpoint:
+  save_dir: ./outputs     # 儲存模型的根目錄
+  
+  # 註：以下參數由 Pytorch-Lightning 的 ModelCheckpoint 回呼函式使用
+  # 我們在 Python 腳本中已經更精確地控制了這些，但保留著作為參考
+  # save_top_k: 1           # 只保留測試集 Loss 最好的 1 個模型
+  # monitor: 'test_loss'    # 監控的指標
+
+# --- 5. 日誌 (Logging) 設定 ---
+logging:
+  log_every_n_steps: 50   # 每多少個 step 記錄一次日誌
+  csv_dir: ./logs/csv     # 儲存 CSV 格式日誌的根目錄
+  tensorboard_dir: ./logs/tensorboard # TensorBoard 日誌路徑

@@ -1,0 +1,25 @@
+# 訓練配置檔案
+training:
+  epochs: 50              # 🔧 從 5 增加到 50
+  batch_size: 16          # 🔧 從 8 增加到 16（更穩定）
+  learning_rate: 1e-4
+  
+data:
+  data_dir: ./data/datasets/mango_hdf5_augmented_2x
+  num_workers: 4
+  
+model:
+  modality: tactile
+  action_dim: 10
+  obs_dim: 256
+  horizon: 16
+
+checkpoint:
+  save_dir: ./outputs
+  save_top_k: 3           # 保留最好的 3 個模型
+  save_every_n_epochs: 5  # 每 5 個 epoch 儲存一次
+  
+logging:
+  log_every_n_steps: 10   # 🔧 從 50 改成 10，更頻繁記錄
+  tensorboard_dir: ./logs/tensorboard
+  csv_dir: ./logs/csv

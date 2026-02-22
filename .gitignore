@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+miniforge3/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 大型模型檔案和檢查點（>100MB）
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+saved_models/
+
+# 日誌和輸出（訓練生成的文件）
+logs/
+runs/
+outputs/
+*.log
+wandb/
+
+# 數據檔案（270GB 的數據不需要上傳）
+data/datasets/
+data/franka_data/
+raw_data/
+
+# 可視化和中間結果
+plots/
+demo_outputs/
+rollouts/
+save/
+results/
+
+# 測試結果檔案
+test_results.txt
+test_*.log
+*.csv
+arm_position.csv
+
+# 其他臨時文件
+*.tmp
+*.temp
+.cache/
+.pytest_cache/
+*.npy
+instruction_embedding_custom.npy
+
+# 大型資料集和中繼檔案
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# 系統文件
+.DS_Store
+Thumbs.db
